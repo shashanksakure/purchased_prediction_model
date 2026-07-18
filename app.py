@@ -254,12 +254,12 @@ def index():
             features = np.array([[gender, age, salary]])
             
             # Execute standard predictions using scikit-learn
-            pred_class = model.predict(features)[0][cite: 1]
-            pred_proba = model.predict_proba(features)[0][cite: 1]
+            pred_class = model.predict(features)[0]
+            pred_proba = model.predict_proba(features)[0]
             
             # Set values to return to our UI display
-            prediction = int(pred_class)[cite: 1]
-            confidence = round(float(pred_proba[prediction]) * 100, 2)[cite: 1]
+            prediction = int(pred_class)
+            confidence = round(float(pred_proba[prediction]) * 100, 2)
 
         except Exception as e:
             return render_template_string(HTML_TEMPLATE, error=f"Processing Error: {str(e)}", prediction=None, inputs=inputs)
